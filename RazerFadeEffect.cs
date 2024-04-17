@@ -3,7 +3,7 @@ using Colore.Data;
 
 namespace Kbg.LightMyRazer;
 
-class RazerFadeEffect(CustomKeyboardEffect effect)
+class RazerFadeEffect(CustomKeyboardEffect effect, int decay)
 {
     static Color[] Colors =
    {
@@ -23,16 +23,17 @@ class RazerFadeEffect(CustomKeyboardEffect effect)
 
         if (color1 == Color.White)
         {
-            effect[k] = Colors[Random.Shared.Next(Colors.Length)];
+            effect[k] = new Color(104, 255, 100);
+            //effect[k] = Colors[Random.Shared.Next(Colors.Length)];
             return true;
         }
 
         if (color1 != Color.Black)
         {
             Color ndarker = new Color(
-                             (byte)Math.Max(0, color1.R - 5),
-                             (byte)Math.Max(0, color1.G - 5),
-                             (byte)Math.Max(0, color1.B - 5));
+                             (byte)Math.Max(0, color1.R - decay),
+                             (byte)Math.Max(0, color1.G - decay),
+                             (byte)Math.Max(0, color1.B - decay));
             effect[k] = ndarker;
             return true;
         }
@@ -138,11 +139,11 @@ class RazerFadeEffect(CustomKeyboardEffect effect)
         change |= fader(Key.RightControl);
         change |= fader(Key.LeftShift);
         change |= fader(Key.RightShift);
-        change |= fader(Key.Macro1);
-        change |= fader(Key.Macro2);
-        change |= fader(Key.Macro3);
-        change |= fader(Key.Macro4);
-        change |= fader(Key.Macro5);
+        //change |= fader(Key.Macro1);
+        //change |= fader(Key.Macro2);
+        //change |= fader(Key.Macro3);
+        //change |= fader(Key.Macro4);
+        //change |= fader(Key.Macro5);
         change |= fader(Key.OemTilde);
         change |= fader(Key.OemMinus);
         change |= fader(Key.OemEquals);
@@ -156,18 +157,18 @@ class RazerFadeEffect(CustomKeyboardEffect effect)
         change |= fader(Key.OemSlash);
         change |= fader(Key.EurPound);
         change |= fader(Key.EurBackslash);
-        change |= fader(Key.JpnYen);
-        change |= fader(Key.JpnSlash);
-        change |= fader(Key.Jpn3);
-        change |= fader(Key.Jpn4);
-        change |= fader(Key.Jpn5);
-        change |= fader(Key.KorPipe);
-        change |= fader(Key.Kor2);
-        change |= fader(Key.Kor3);
-        change |= fader(Key.Kor4);
-        change |= fader(Key.Kor5);
-        change |= fader(Key.Kor6);
-        change |= fader(Key.Kor7);
+        //change |= fader(Key.JpnYen);
+        //change |= fader(Key.JpnSlash);
+        //change |= fader(Key.Jpn3);
+        //change |= fader(Key.Jpn4);
+        //change |= fader(Key.Jpn5);
+        //change |= fader(Key.KorPipe);
+        //change |= fader(Key.Kor2);
+        //change |= fader(Key.Kor3);
+        //change |= fader(Key.Kor4);
+        //change |= fader(Key.Kor5);
+        //change |= fader(Key.Kor6);
+        //change |= fader(Key.Kor7);
         return change;
     }
 }

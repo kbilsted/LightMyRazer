@@ -30,8 +30,8 @@ internal class Program
         var kl = new KeyListen(KeyQueue, effect);
         Task.Run(() => kl.KeyListener(cts.Token), cts.Token);
 
-
-        var fader = new RazerFadeEffect(effect);
+        int decay = 2;
+        var fader = new RazerFadeEffect(effect, decay);
 
         while (true)
         {
